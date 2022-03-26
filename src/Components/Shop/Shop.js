@@ -7,14 +7,17 @@ const Shop = () => {
     // declare useState
     // use useEffect
     const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState([]);
     useEffect(() => {
         fetch('products.json')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
     const handleAddToCart = (products) => {
-        console.log(products);
+        const newCart = [...cart, products];
+        setCart(newCart);
     }
+    console.log(cart);
     return (
         <div className='shop'>
             <div className="shopping-item">{
@@ -24,6 +27,7 @@ const Shop = () => {
             </div>
             <div className="shopping-cart">
                 <h1>Shopping Cart</h1>
+                <p>Selected Items:{cart.length}</p>
             </div>
 
         </div>
