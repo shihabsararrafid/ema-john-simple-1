@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './Shop.css';
+import Product from '../Product/Product';
 
 const Shop = () => {
     // to return data we have to do 5 things
     // declare useState
     // use useEffect
-    const [product, setProducts] = useState([]);
+    const [products, setProducts] = useState([]);
     useEffect(() => {
         fetch('products.json')
             .then(res => res.json())
@@ -13,8 +14,10 @@ const Shop = () => {
     }, [])
     return (
         <div className='shop'>
-            <div className="shopping-item">
-                <h1>Shopping Item :{product.length}</h1>
+            <div className="shopping-item">{
+                products.map((product) => <Product key={product.id} product={product}></Product>)
+            }
+
             </div>
             <div className="shopping-cart">
                 <h1>Shopping Cart</h1>
