@@ -1,0 +1,13 @@
+.product img{
+    height: 286px;
+    width: 286px;
+    display: block;
+    margin: 0 auto;
+    padding-top:9px ;
+    border-radius:10px ;
+}
+.product{
+    height: 450px;
+    border: 2px solid salmon;
+    border-radius:15px ;
+}
