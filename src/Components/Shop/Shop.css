@@ -9,3 +9,7 @@
     box-sizing: border-box;
     gap: 20px;
 }
+.shopping-cart{
+    background-color: #FF9900;
+    border-radius: 20px;
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Shop.css';
 import Product from '../Product/Product';
+import Cart from '../Cart/Cart';
 
 const Shop = () => {
     // to return data we have to do 5 things
@@ -17,7 +18,7 @@ const Shop = () => {
         const newCart = [...cart, products];
         setCart(newCart);
     }
-    console.log(cart);
+    //console.log(cart);
     return (
         <div className='shop'>
             <div className="shopping-item">{
@@ -26,8 +27,7 @@ const Shop = () => {
 
             </div>
             <div className="shopping-cart">
-                <h1>Shopping Cart</h1>
-                <p>Selected Items:{cart.length}</p>
+                <Cart cart={cart}></Cart>
             </div>
 
         </div>
