@@ -2,6 +2,7 @@ import React from 'react';
 import './Product.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { addTodb } from '../../db';
 
 const Product = (props) => {
     const { handleAddToCart, product } = props;
