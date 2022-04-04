@@ -3,6 +3,9 @@ import './Shop.css';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
 import { addTodb, getCartFromDb } from '../../db';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBagShopping } from '@fortawesome/free-solid-svg-icons';
 
 const Shop = () => {
     // to return data we have to do 5 things
@@ -61,7 +64,11 @@ const Shop = () => {
 
             </div>
             <div className="shopping-cart">
-                <Cart cart={cart}></Cart>
+                <Cart cart={cart}>
+                    <Link to="/orders">
+                        <button className='button-cart' >Review Order <FontAwesomeIcon icon={faBagShopping}></FontAwesomeIcon></button>
+                    </Link>
+                </Cart>
             </div>
 
         </div>

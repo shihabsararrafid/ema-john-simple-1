@@ -1,0 +1,39 @@
+.orderDetail {
+    width: 75%;
+    border: 2px solid salmon;
+    margin: 0 auto;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.orderDetail img {
+    width: 91px;
+    display: block;
+    margin: auto 0;
+}
+
+.orderDetail p {
+    margin: 0;
+}
+
+.orderDetail button {
+    border: 1px solid #EB5757;
+    border-radius: 30px;
+    background-color: #e9d5d5;
+}
+
+.itemDetail {
+    display: flex;
+    margin-left: 10px;
+    height: 100%;
+    width: 95%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.delete-icon {
+    font-size: 1.1rem;
+    color: #EB5757;
+    padding: 5px;
+}
