@@ -17,6 +17,7 @@ const Shop = () => {
     }, [])
     useEffect(() => {
         const storedData = getCartFromDb();
+        //console.log(storedData);
         const savedCart = [];
         for (const id in storedData) {
             let storedProduct = products.find(product => product.id === id);
@@ -43,7 +44,7 @@ const Shop = () => {
         }
         else {
             products.quantity = products.quantity + 1;
-            const remain = cart.filter(product => product.id != products.id);
+            const remain = cart.filter(product => product.id !== products.id);
             newCart = [...remain, existedPdct];
         }
 
