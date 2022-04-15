@@ -9,13 +9,14 @@ import About from './Components/About/About';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import NotFound from './Components/NotFound/NotFound';
+import Home from './Components/Home/Home';
 
 function App() {
   return (
     <div >
       <Header></Header>
       <Routes>
-        <Route path='/' element={<Shop></Shop>} ></Route>
+        <Route path='/' element={<Home></Home>} ></Route>
         <Route path='/shop' element={<Shop></Shop>}></Route>
         <Route path='/orders' element={<Orders></Orders>}></Route>
         <Route path='/review' element={<Review></Review>}></Route>

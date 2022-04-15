@@ -12,7 +12,7 @@ const Header = () => {
                 <img src={logo} alt="" />
                 <ul>
 
-                    <Link to="/shop">Home</Link>
+                    <Link to="/shop">Shop</Link>
                     <Link to="/orders">Orders</Link>
                     <Link to="/review">Orders Review</Link>
                     <Link to="/about">About</Link>
