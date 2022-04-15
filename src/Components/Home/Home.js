@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import bannerLogo from './../../fashion-portrait-young-businessman-handsome-model-man-casual-cloth-suit-with-accessories-hands (1).png';
+
 const Home = () => {
     return (
         <div className='flex items-center '>
+
 
             <div className="left-banner mx-10">
                 <h1 className='text-5xl font-semibold text-center'>New Collection For All</h1>

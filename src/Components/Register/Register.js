@@ -1,9 +1,27 @@
 import React from 'react';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 import logoggl from './../../icons8-google-48.png';
 import './../Login/Login.css';
 
 const Register = () => {
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
+    const googleSignIn = (e) => {
+        e.preventDefault();
+        signInWithGoogle();
+        result();
+
+    }
+    const result = () => {
+        if (user) {
+            console.log(user);
+        }
+        if (error) {
+            console.log(error);
+        }
+    }
     return (
         <div className='w-[500px] h-[650px] my-10 form-container rounded-lg border-[2px] mx-auto'>
             <form className='' >
@@ -47,7 +65,7 @@ const Register = () => {
 
                 <div className='w-[80%] mx-auto'>
 
-                    <button className='border-[1px] flex items-center justify-evenly  w-[100%] h-[48px]'><img src={logoggl} alt="" />Continue With Google</button>
+                    <button onClick={googleSignIn} className='border-[1px] flex items-center justify-evenly  w-[100%] h-[48px]'><img src={logoggl} alt="" />Continue With Google</button>
                 </div>
 
 
