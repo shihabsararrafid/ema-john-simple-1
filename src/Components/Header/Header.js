@@ -14,13 +14,13 @@ const Header = () => {
         signOut(auth)
             .then(() => {
                 setTimeout(() => {
-                    const msg = document.getElementById('success');
+                    const msg = document.getElementById('signOut');
                     msg.style.display = 'flex';
 
                 }, 100)
 
                 setTimeout(() => {
-                    const msg = document.getElementById('success');
+                    const msg = document.getElementById('signOut');
                     msg.style.display = 'none';
 
                 }, 4000)
@@ -44,16 +44,16 @@ const Header = () => {
                     }
                     {
                         user ?
-                            <div className='flex items-center ml-3'>
-                                <p className='text-blue-600 mr-2 font-semibold'>{user.displayName}</p>
-                                <img className='w-[50px] h-[49px]  rounded-full' src={user.photoURL} alt="" />
+                            <div className='flex items-center ml-1'>
+                                <Link to="/customerdetails"> <p className='text-blue-600 mr-2 font-semibold'>{user?.displayName}</p></Link>
+                                <img className='w-[50px] h-[49px]  rounded-full' src={user?.photoURL} alt="" />
                             </div>
                             : ""
                     }
 
                 </ul>
             </nav>
-            <div id='success' className='w-[200px] hidden h-[35px] top-[86px] left-[500px]
+            <div id='signOut' className='w-[200px] hidden h-[35px] top-[86px] left-[500px]
              absolute items-center font-semibold form-container bg-white justify-evenly  border-[2px] border-[#FF9900] rounded-lg '>
 
                 <img className='w-[30px]' src={logOut} alt="" />   <span>Sign Out Succesful</span>

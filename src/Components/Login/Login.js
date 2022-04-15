@@ -2,17 +2,36 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logoggl from './../../icons8-google-48.png';
 import './Login.css';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { Result } from 'postcss';
 import right from '../../right.jpg';
 import loadingpic from './../../loading.png';
 const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [visibity, setVisibity] = useState(0);
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
 
+    const signInEmail = (e) => {
+        e.preventDefault();
+        signInWithEmailAndPassword(email, password);
+        console.log(user);
+        if (user) {
+            setTimeout(() => {
+                const msg = document.getElementById('success');
+                msg.style.display = 'flex';
 
+            }, 100)
 
+            setTimeout(() => {
+                const msg = document.getElementById('success');
+                msg.style.display = 'none';
+
+            }, 4000)
+        }
+    }
 
     if (error) {
         return (
@@ -59,19 +78,19 @@ const Login = () => {
                         <label className='text-lg' htmlFor="Email">Email</label>
                         <br />
 
-                        <input className='border-[1px] w-[100%] h-[40px]' type="email" name="" id="" />
+                        <input onChange={(e) => setEmail(e.target.value)} className='border-[1px] w-[100%] h-[40px]' type="email" name="" id="" />
                     </div>
                     <br />
                     <div className='w-[80%] mx-auto'>
                         <label className='text-lg' htmlFor="Email">Password</label>
                         <br />
 
-                        <input className='border-[1px] w-[100%] h-[40px]' type="password" name="" id="" />
+                        <input onChange={(e) => setPassword(e.target.value)} className='border-[1px] w-[100%] h-[40px]' type="password" name="" id="" />
                     </div>
                     <br />
                     <br />
                     <div className='w-[80%] mx-auto'>
-                        <button className='border-[1px] bg-[#FF99004D] w-[100%] h-[40px]'>Log In</button>
+                        <button onClick={signInEmail} className='border-[1px] bg-[#FF99004D] w-[100%] h-[40px]'>Log In</button>
                     </div>
                     <br />
                     <div className='w-[80%] mx-auto'>
